@@ -14,6 +14,7 @@ class MovieViewModel {
     private let genre:Genre!
     var movies = [Movie]()
     var page = 1
+    var isLoadMore = true
     
     init(genre: Genre, collectionView: UICollectionView, service: ServiceProtocol = Service()) {
         self.genre = genre
@@ -23,6 +24,9 @@ class MovieViewModel {
     }
     
     func getRequest(page: Int, genreId: Int) {
+        if !isLoadMore {
+            return
+        }
         let url = URL(string: Constants.moviesUrl + "&page=\(page)&with_genres=\(genreId)")!
         service.request(with: url, method: .get, parameter: nil) { response in
             switch response {
@@ -33,7 +37,7 @@ class MovieViewModel {
                         let movie = Movie(id: m.id, title: m.title, poster_path: m.poster_path ?? "", release_date: m.release_date ?? "", overview: m.overview ?? "")
                         self.movies.append(movie)
                     }
-                    
+                    self.isLoadMore = movies.results?.count ?? 0 > 0 ? true : false
                     self.collectionView.reloadData()
                 } catch {
                     print(error.localizedDescription)

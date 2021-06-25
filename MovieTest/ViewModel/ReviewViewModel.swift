@@ -11,9 +11,10 @@ class ReviewViewModel {
     
     private let service: ServiceProtocol
     private let movie: Movie!
-    var reviews: [Review]?
+    var reviews = [Review]()
     private let tableView: UITableView
     var page = 1
+    var isLoadMore = true
     
     init(movie: Movie, tableView: UITableView, service: ServiceProtocol = Service()) {
         self.movie = movie
@@ -23,6 +24,9 @@ class ReviewViewModel {
     }
     
     func getRequest() {
+        if !isLoadMore {
+            return
+        }
         let url = URL(string: Constants.reviewUrl + "\(movie.id)/reviews?api_key=520609269154335cdfd2f418e3d8377f&page=\(page)")!
         service.request(with: url, method: .get, parameter: nil) { response in
             switch response {
@@ -31,9 +35,9 @@ class ReviewViewModel {
                     let review = try JSONDecoder().decode(Reviews.self, from: data)
                     for r in review.results ?? [] {
                         let review = Review(author: r.author, created_at: r.created_at ?? "", content: r.content ?? "")
-                        self.reviews?.append(review)
+                        self.reviews.append(review)
                     }
-                    
+                    self.isLoadMore = review.results?.count ?? 0 > 0 ? true : false
                     self.tableView.reloadData()
                     
                 } catch {

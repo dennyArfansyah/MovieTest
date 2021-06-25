@@ -12,11 +12,13 @@ extension ReviewController {
     func setupLayout() {
         view.backgroundColor = .white
         navigationController?.navigationBar.prefersLargeTitles = false
-        tableView.register(UITableViewCell.self, forCellReuseIdentifier: "cell")
+        tableView.register(ReviewCell.self, forCellReuseIdentifier: "ReviewCell")
         tableView.delegate = self
         tableView.dataSource = self
         tableView.tableFooterView = UITableView()
         tableView.tableHeaderView = UITableView()
+        tableView.rowHeight = UITableView.automaticDimension
+        tableView.estimatedRowHeight = 50
         
         view.addSubview(noReviewFoundLabel)
         noReviewFoundLabel.numberOfLines = 0
@@ -28,20 +30,19 @@ extension ReviewController {
     }
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        noReviewFoundLabel.isHidden = reviewViewModel.reviews?.count ?? 0 > 0 ? true : false
-        return reviewViewModel.reviews?.count ?? 0
+        noReviewFoundLabel.isHidden = reviewViewModel.reviews.count > 0 ? true : false
+        return reviewViewModel.reviews.count
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let genre = reviewViewModel.reviews?[indexPath.row]
-        let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath)
-        cell.textLabel?.text = genre?.author
-        cell.accessoryType = .disclosureIndicator
+        let review = reviewViewModel.reviews[indexPath.row]
+        let cell = tableView.dequeueReusableCell(withIdentifier: "ReviewCell", for: indexPath) as! ReviewCell
+        cell.setupData(with: review)
         return cell
     }
     
     override func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
-        if indexPath.row == reviewViewModel.reviews?.count ?? 0 - 1 {
+        if indexPath.row == reviewViewModel.reviews.count - 1 {
             perform(#selector(loadMore))
         }
     }
