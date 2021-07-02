@@ -1,8 +1,8 @@
 //
 //  Service.swift
-//  MovieTest
+//  ICPChallange
 //
-//  Created by Denny Arfansyah on 25/06/21.
+//  Created by Denny Arfansyah on 01/07/21.
 //
 
 import Alamofire
@@ -22,7 +22,7 @@ struct Service: ServiceProtocol {
             return
         }
         
-        AF.request(url, method: method, parameters: Request.setParams(data: parameter), encoding: JSONEncoding.default, headers: nil, interceptor: nil, requestModifier: nil).responseJSON { response in
+        AF.request(url, method: method, parameters: Request.setParams(data: parameter), encoding: URLEncoding.default, headers: nil, interceptor: nil, requestModifier: nil).responseJSON { response in
             
             print(response)
             

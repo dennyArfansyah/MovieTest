@@ -34,6 +34,8 @@
 		B070AAAD26844F5400C9D8A1 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B070AAAB26844F5400C9D8A1 /* LaunchScreen.storyboard */; };
 		B08830CA2684EE0C00859C85 /* Genre.swift in Sources */ = {isa = PBXBuildFile; fileRef = B08830C92684EE0C00859C85 /* Genre.swift */; };
 		B0BCFF7D26845EF500CAA72F /* GenreView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0BCFF7C26845EF500CAA72F /* GenreView.swift */; };
+		B0E07C8C268C4B4500127468 /* LisCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0E07C8A268C4B4500127468 /* LisCollectionViewCell.swift */; };
+		B0E07C8D268C4B4500127468 /* LisCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = B0E07C8B268C4B4500127468 /* LisCollectionViewCell.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -67,6 +69,8 @@
 		B070AAAE26844F5400C9D8A1 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		B08830C92684EE0C00859C85 /* Genre.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Genre.swift; sourceTree = "<group>"; };
 		B0BCFF7C26845EF500CAA72F /* GenreView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GenreView.swift; sourceTree = "<group>"; };
+		B0E07C8A268C4B4500127468 /* LisCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LisCollectionViewCell.swift; sourceTree = "<group>"; };
+		B0E07C8B268C4B4500127468 /* LisCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LisCollectionViewCell.xib; sourceTree = "<group>"; };
 		EEC6D9513A378A9C255C02CA /* Pods-MovieTest.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MovieTest.debug.xcconfig"; path = "Target Support Files/Pods-MovieTest/Pods-MovieTest.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -176,6 +180,8 @@
 				B044D9BA2686298E004E36C4 /* ReviewView.swift */,
 				B044D9C226863F12004E36C4 /* DetailMoviewView.swift */,
 				B0708342268642B6003CC079 /* ReviewCell.swift */,
+				B0E07C8A268C4B4500127468 /* LisCollectionViewCell.swift */,
+				B0E07C8B268C4B4500127468 /* LisCollectionViewCell.xib */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -267,6 +273,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				B070AAAD26844F5400C9D8A1 /* LaunchScreen.storyboard in Resources */,
+				B0E07C8D268C4B4500127468 /* LisCollectionViewCell.xib in Resources */,
 				B070AAAA26844F5400C9D8A1 /* Assets.xcassets in Resources */,
 				B070AAA826844F5200C9D8A1 /* Main.storyboard in Resources */,
 			);
@@ -326,6 +333,7 @@
 				B070AAA526844F5200C9D8A1 /* GenreController.swift in Sources */,
 				B044D9BD268629AB004E36C4 /* ReviewViewModel.swift in Sources */,
 				B03734412685BC12008B40F6 /* MovieView.swift in Sources */,
+				B0E07C8C268C4B4500127468 /* LisCollectionViewCell.swift in Sources */,
 				B070AAA126844F5200C9D8A1 /* AppDelegate.swift in Sources */,
 				B037343F2685B70A008B40F6 /* MovieController.swift in Sources */,
 				B04AF2C62685CD7F00931B31 /* MovieViewModel.swift in Sources */,

@@ -17,6 +17,7 @@ class GenreController: UITableViewController {
         
         setupLayout()
         genreViewModel = GenreViewModel(tableView: tableView)
+        
     }
     
 }
